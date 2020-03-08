@@ -1,0 +1,52 @@
+Inferring Columns ...
+Creating Data loader ...
+Loading data ...
+Exploring multiple ML algorithms and settings to find you the best model for ML task: binary-classification
+For further learning check: https://aka.ms/mlnet-cli
+|     Trainer                              Accuracy      AUC    AUPRC  F1-score  Duration #Iteration             |
+[Source=AutoML, Kind=Trace] Channel started
+[Source=AutoML, Kind=Trace] Evaluating pipeline xf=TextFeaturizing{ col=col0_tf:col0} xf=ColumnCopying{ col=Features:col0_tf} xf=Normalizing{ col=Features:Features} tr=AveragedPerceptronBinary{}  cache=+
+[Source=AutoML, Kind=Trace] 1	0.779931786744142	00:00:03.0860016	xf=TextFeaturizing{ col=col0_tf:col0} xf=ColumnCopying{ col=Features:col0_tf} xf=Normalizing{ col=Features:Features} tr=AveragedPerceptronBinary{}  cache=+
+|1    AveragedPerceptronBinary               0.7757   0.8550   0.8991    0.7895       3.1          0             |
+[Source=AutoML, Kind=Trace] Evaluating pipeline xf=TextFeaturizing{ col=col0_tf:col0} xf=ColumnCopying{ col=Features:col0_tf} xf=Normalizing{ col=Features:Features} tr=SdcaLogisticRegressionBinary{}  cache=+
+[Source=AutoML, Kind=Trace] 2	0.810331777867541	00:00:03.8819068	xf=TextFeaturizing{ col=col0_tf:col0} xf=ColumnCopying{ col=Features:col0_tf} xf=Normalizing{ col=Features:Features} tr=SdcaLogisticRegressionBinary{}  cache=+
+|2    SdcaLogisticRegressionBinary           0.8240   0.9014   0.9124    0.8167       3.9          0             |
+[Source=AutoML, Kind=Trace] Evaluating pipeline xf=TextFeaturizing{ col=col0_tf:col0} xf=ColumnCopying{ col=Features:col0_tf} tr=LightGbmBinary{}  cache=-
+[Source=AutoML, Kind=Trace] 3	0.763787786411138	00:00:07.4383295	xf=TextFeaturizing{ col=col0_tf:col0} xf=ColumnCopying{ col=Features:col0_tf} tr=LightGbmBinary{}  cache=-
+|3    LightGbmBinary                         0.7664   0.8311   0.8768    0.7863       7.4          0             |
+[Source=AutoML, Kind=Trace] Evaluating pipeline xf=TextFeaturizing{ col=col0_tf:col0} xf=ColumnCopying{ col=Features:col0_tf} xf=Normalizing{ col=Features:Features} tr=SymbolicSgdLogisticRegressionBinary{}  cache=+
+[Source=AutoML, Kind=Trace] 4	0.76224856009249	00:00:02.2189538	xf=TextFeaturizing{ col=col0_tf:col0} xf=ColumnCopying{ col=Features:col0_tf} xf=Normalizing{ col=Features:Features} tr=SymbolicSgdLogisticRegressionBinary{}  cache=+
+|4    SymbolicSgdLogisticRegressionBinary    0.7629   0.8179   0.7653    0.7294       2.2          0             |
+[Source=AutoML, Kind=Trace] Evaluating pipeline xf=TextFeaturizing{ col=col0_tf:col0} xf=ColumnCopying{ col=Features:col0_tf} xf=Normalizing{ col=Features:Features} tr=LinearSvmBinary{}  cache=+
+[Source=AutoML, Kind=Trace] 5	0.751719244450291	00:00:02.0742154	xf=TextFeaturizing{ col=col0_tf:col0} xf=ColumnCopying{ col=Features:col0_tf} xf=Normalizing{ col=Features:Features} tr=LinearSvmBinary{}  cache=+
+|5    LinearSvmBinary                        0.7527   0.8066   0.8248    0.7294       2.1          0             |
+[Source=AutoML, Kind=Trace] Evaluating pipeline xf=TextFeaturizing{ col=col0_tf:col0} xf=ColumnCopying{ col=Features:col0_tf} tr=FastTreeBinary{}  cache=-
+[Source=AutoML, Kind=Trace] 6	0.79413908022918	00:00:29.0877980	xf=TextFeaturizing{ col=col0_tf:col0} xf=ColumnCopying{ col=Features:col0_tf} tr=FastTreeBinary{}  cache=-
+|6    FastTreeBinary                         0.8080   0.8793   0.8961    0.8000      29.1          0             |
+[Source=AutoML, Kind=Trace] Evaluating pipeline xf=TextFeaturizing{ col=col0_tf:col0} xf=ColumnCopying{ col=Features:col0_tf} xf=Normalizing{ col=Features:Features} tr=LbfgsLogisticRegressionBinary{}  cache=+
+[Source=AutoML, Kind=Trace] 7	0.803436837764285	00:00:02.6487392	xf=TextFeaturizing{ col=col0_tf:col0} xf=ColumnCopying{ col=Features:col0_tf} xf=Normalizing{ col=Features:Features} tr=LbfgsLogisticRegressionBinary{}  cache=+
+|7    LbfgsLogisticRegressionBinary          0.8065   0.8748   0.8726    0.7955       2.7          0             |
+[Source=AutoML, Kind=Trace] Evaluating pipeline xf=TextFeaturizing{ col=col0_tf:col0} xf=ColumnCopying{ col=Features:col0_tf} tr=FastForestBinary{}  cache=-
+
+===============================================Experiment Results=================================================
+------------------------------------------------------------------------------------------------------------------
+|                                                     Summary                                                    |
+------------------------------------------------------------------------------------------------------------------
+|ML Task: binary-classification                                                                                  |
+|Dataset: yelp_labelled.txt                                                                                      |
+|Label : Label                                                                                                   |
+|Total experiment time : 60.40 Secs                                                                              |
+|Total number of models explored: 7                                                                              |
+------------------------------------------------------------------------------------------------------------------
+|                                              Top 5 models explored                                             |
+------------------------------------------------------------------------------------------------------------------
+|     Trainer                              Accuracy      AUC    AUPRC  F1-score  Duration #Iteration             |
+|1    SdcaLogisticRegressionBinary           0.8240   0.9014   0.9124    0.8167       3.9          2             |
+|2    FastTreeBinary                         0.8080   0.8793   0.8961    0.8000      29.1          6             |
+|3    LbfgsLogisticRegressionBinary          0.8065   0.8748   0.8726    0.7955       2.7          7             |
+|4    AveragedPerceptronBinary               0.7757   0.8550   0.8991    0.7895       3.1          1             |
+|5    LightGbmBinary                         0.7664   0.8311   0.8768    0.7863       7.4          3             |
+------------------------------------------------------------------------------------------------------------------
+Generated trained model for consumption: C:\Users\ajmal\source\repos\SinequaSentimentAnalysisDemoApp\SinequaSentimentAnalysisDemoApp\Data\mLOpinionApp\mLOpinionApp.Model\MLModel.zip
+Generated C# code for model consumption: C:\Users\ajmal\source\repos\SinequaSentimentAnalysisDemoApp\SinequaSentimentAnalysisDemoApp\Data\mLOpinionApp\mLOpinionApp.ConsoleApp
+Check out log file for more information: C:\Users\ajmal\source\repos\SinequaSentimentAnalysisDemoApp\SinequaSentimentAnalysisDemoApp\Data\mLOpinionApp\logs\debug_log.txt
